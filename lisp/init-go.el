@@ -1,0 +1,16 @@
+(require-package 'go-mode)
+(require-package 'go-eldoc)
+(require-package 'company-go)
+
+(exec-path-from-shell-initialize)
+(exec-path-from-shell-copy-env "GOPATH")
+
+(add-to-list 'load-path "~/Projects/go/src/github.com/nsf/gocode/emacs-company")
+(add-hook 'go-mode-hook (lambda ()
+			  (setq tab-width 4)
+			  (setq gofmt-command "goimports")
+			  (setq godef-command "godef")
+			  (set (make-local-variable 'company-backends) '(company-go))
+			  (add-hook 'before-save-hook 'gofmt-before-save)
+			  (go-eldoc-setup)))
+(provide 'init-go)
