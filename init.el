@@ -3,6 +3,7 @@
 
 (require 'init-benchmarking)
 (require 'init-utils)
+(require 'init-desktop)
 (require 'init-elpa)
 (require 'init-exec-path)
 (require 'init-themes)
@@ -20,6 +21,8 @@
 (require 'init-go)
 (require 'init-rust)
 (require 'init-julia)
+(require 'init-racket)
+(require 'init-ocaml)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
