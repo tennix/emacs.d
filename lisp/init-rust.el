@@ -1,8 +1,8 @@
 (require-package 'rust-mode)
 
-(setq racer-rust-src-path "~/Projects/rust/rustc-1.0.0/src/")
+(setq racer-rust-src-path "~/Projects/rust/rustc-nightly/src/")
 (setq racer-cmd "~/Projects/rust/racer/target/release/racer")
-(add-to-list 'load-path "~/Projects/rust/racer/editors")
+(add-to-list 'load-path "~/Projects/rust/racer/editors/emacs")
 (eval-after-load "rust-mode" '(require 'racer))
 
 (add-hook 'rust-mode-hook
