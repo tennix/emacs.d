@@ -23,6 +23,7 @@
 (require 'init-julia)
 (require 'init-racket)
 (require 'init-ocaml)
+(require 'init-haskell)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
