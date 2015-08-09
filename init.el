@@ -13,6 +13,7 @@
 (require 'init-ido)
 (require 'init-editing-utils)
 (require 'init-yasnippet)
+(require 'init-paredit)
 
 (require 'init-markdown)
 (require 'init-git)
