@@ -1,14 +1,5 @@
-(require-package 'color-theme-sanityinc-solarized)
-(require-package 'color-theme-sanityinc-tomorrow)
+(require-package 'monokai-theme)
 
-(defun light ()
-  "Activate a light color theme."
-  (interactive)
-  (color-theme-sanityinc-solarized-light))
-
-(defun dark ()
-  "Activate a dark color theme."
-  (interactive)
-  (color-theme-sanityinc-solarized-dark))
+(load-theme 'monokai t)
 
 (provide 'init-themes)
