@@ -23,6 +23,7 @@
 (add-to-list 'load-path "~/Projects/go/src/github.com/nsf/gocode/emacs-company")
 (add-hook 'go-mode-hook (lambda ()
 			  (setq tab-width 4)
+			  (flycheck-mode)
 			  (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
 			  (local-set-key (kbd "C-c C-g") 'go-goto-imports)
 			  (local-set-key (kbd "C-c C-f") 'gofmt)
