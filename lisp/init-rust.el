@@ -9,5 +9,6 @@
 	  '(lambda ()
 	     (racer-activate)
 	     (local-set-key (kbd "M-.") #'racer-find-definition)
-	     (local-set-key (kbd "TAB") #'racer--complete-or-indent)))
+	     (local-set-key (kbd "TAB") #'racer-complete-or-indent)))
+
 (provide 'init-rust)
