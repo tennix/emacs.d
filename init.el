@@ -2,9 +2,10 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'init-benchmarking)
+(require 'init-elpa)
 (require 'init-utils)
 (require 'init-desktop)
-(require 'init-elpa)
+(require 'init-window)
 (require 'init-exec-path)
 (require 'init-themes)
 (require 'init-uniquify)
