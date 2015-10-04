@@ -11,10 +11,10 @@
 	  '(lambda ()
 	     (racer-mode)
 	     (flycheck-mode)
+	     (eldoc-mode)
+	     (company-mode)
 	     (local-set-key (kbd "M-.") #'racer-find-definition)
-	     (local-set-key (kbd "TAB") #'racer-complete-or-indent)))
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook #'company-mode)
+	     (local-set-key (kbd "TAB") #'company-indent-or-complete-common)))
 (setq company-tooltip-align-annotations t)
 
 (provide 'init-rust)
