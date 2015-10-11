@@ -26,3 +26,4 @@
 (require 'init-racket)
 (require 'init-ocaml)
 (require 'init-haskell)
+(require 'init-web)
