@@ -26,7 +26,7 @@
 (dolist (hook '(prog-mode-hook html-mode-hook css-mode-hook))
   (add-hook hook 'highlight-symbol-mode)
   (add-hook hook 'highlight-symbol-nav-mode))
-
+(global-set-key (kbd "C-x M-r") 'highlight-symbol-query-replace)
 
 (global-set-key (kbd "C-x ?") 'help-command)
 (global-set-key (kbd "C-h") 'delete-backward-char)

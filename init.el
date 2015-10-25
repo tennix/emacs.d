@@ -27,3 +27,4 @@
 (require 'init-ocaml)
 (require 'init-haskell)
 (require 'init-web)
+(require 'init-helm)
