@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: struct
-# key: strcut
-# --
-struct $1 {
-    $0
-}
