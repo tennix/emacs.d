@@ -4,6 +4,7 @@
 (require-package 'emmet-mode)
 (require-package 'js2-mode)
 ;; (require-package 'tide)
+(require-package 'coffee-mode)
 
 (defun emmet-navigation-keys ()
   (local-set-key (kbd "M-p") 'emmet-prev-edit-point)
@@ -19,5 +20,6 @@
 (setq web-mode-enable-current-column-highlight t)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(custom-set-variables '(coffee-tab-width 4))
 
 (provide 'init-web)
