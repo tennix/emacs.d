@@ -11,7 +11,7 @@
  column-number-mode t
  make-backup-files nil
  tooltip-delay 1.5
- visible-bell t
+ ;; visible-bell t
  inhibit-startup-message t
  initial-scratch-message ""
  )
