@@ -23,7 +23,7 @@
 (require 'init-go)
 (require 'init-rust)
 (require 'init-julia)
-(require 'init-racket)
+(require 'init-lisp)
 (require 'init-ocaml)
 (require 'init-haskell)
 (require 'init-web)

@@ -1,3 +1,4 @@
+(require-package 'geiser)
 (require-package 'racket-mode)
 
-(provide 'init-racket)
+(provide 'init-lisp)
