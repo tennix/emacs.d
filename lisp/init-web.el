@@ -5,6 +5,8 @@
 (require-package 'js2-mode)
 ;; (require-package 'tide)
 (require-package 'coffee-mode)
+(require-package 'yaml-mode)
+(require-package 'protobuf-mode)
 
 (defun emmet-navigation-keys ()
   (local-set-key (kbd "M-p") 'emmet-prev-edit-point)
