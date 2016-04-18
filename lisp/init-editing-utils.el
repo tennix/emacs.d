@@ -19,7 +19,7 @@
 (show-paren-mode t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(global-linum-mode)
+;; (global-linum-mode)
 (global-subword-mode)
 
 (require-package 'highlight-symbol)
