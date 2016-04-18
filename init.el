@@ -28,3 +28,4 @@
 (require 'init-haskell)
 (require 'init-web)
 (require 'init-helm)
+(require 'init-org)
