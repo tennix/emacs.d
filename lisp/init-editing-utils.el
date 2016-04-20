@@ -17,7 +17,7 @@
  )
 
 (show-paren-mode t)
-(scroll-bar-mode -1)
+;; (scroll-bar-mode -1)
 (tool-bar-mode -1)
 ;; (global-linum-mode)
 (global-subword-mode)
@@ -32,5 +32,11 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
+
+(if (display-graphic-p)
+    (progn
+      (menu-bar-mode -1)
+      (scroll-bar-mode -1)
+      ))
 
 (provide 'init-editing-utils)
