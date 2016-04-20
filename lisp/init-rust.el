@@ -2,8 +2,10 @@
 (require-package 'racer)
 (require-package 'flycheck-rust)
 
-(setq racer-rust-src-path "~/Projects/rust/rust/src/")
-(setq racer-cmd "~/Projects/rust/racer/target/release/racer")
+;;; git clone --depth=1 https://github.com/rust-lang/rust ~/.rust
+(setq racer-rust-src-path "~/.rust/src/")
+;;; cargo install racer
+(setq racer-cmd "~/.cargo/bin/racer")
 
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
