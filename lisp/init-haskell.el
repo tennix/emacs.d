@@ -2,8 +2,8 @@
 (require 'haskell-interactive-mode)
 (require 'haskell-process)
 
-(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;; (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
@@ -14,7 +14,7 @@
 (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
 (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
 (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-(define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
+;; (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
 (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
 
 (provide 'init-haskell)
