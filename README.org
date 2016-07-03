@@ -3,33 +3,33 @@
 * Keybindings
 
 ** global keybindings
-| keybinding | function                       | which package      |
-|------------+--------------------------------+--------------------|
-| ~M-p~      | highlight-symbol-prev          | /highlight-symbol/ |
-| ~M-n~      | highlight-symbol-next          | /highlight-symbol/ |
-| ~C-x M-r~  | highlight-symbol-query-replace | /highlight-symbol/ |
-| ~C-x ?~    | help-command                   | /builtin/          |
-| ~C-h~      | delete-backward-char           | /builtin/          |
-| ~C-w~      | backward-kill-word             | /builtin/          |
-| ~C-x C-k~  | kill-region                    | /builtin/          |
+| keybinding | function                       | which package    |
+|------------+--------------------------------+------------------|
+| ~M-p~        | highlight-symbol-prev          | /highlight-symbol/ |
+| ~M-n~        | highlight-symbol-next          | /highlight-symbol/ |
+| ~C-x M-r~    | highlight-symbol-query-replace | /highlight-symbol/ |
+| ~C-x ?~      | help-command                   | /builtin/          |
+| ~C-h~        | delete-backward-char           | /builtin/          |
+| ~C-w~        | backward-kill-word             | /builtin/          |
+| ~C-x C-k~    | kill-region                    | /builtin/          |
 
 
 
 ** local keybindings
 *** rust-mode
-| keybinding | function                          | which package                |
-|------------+-----------------------------------+------------------------------|
-| ~M-.~      | racer-find-definition             | /racer/                      |
-| ~TAB~      | company-indent-or-complete-common | /rust-mode, commpany, racer/ |
+| keybinding | function                          | which package              |
+|------------+-----------------------------------+----------------------------|
+| ~M-.~        | racer-find-definition             | /racer/                      |
+| ~TAB~        | company-indent-or-complete-common | /rust-mode, commpany, racer/ |
 
 
 *** go-mode
 | keybinding | function                 | which package |
 |------------+--------------------------+---------------|
-| ~C-c C-a~  | go-import-add            |               |
-| ~C-c C-r~  | go-remove-unused-imports |               |
-| ~C-c C-g~  | go-goto-imports          |               |
-| ~C-c C-f~  | gofmt                    |               |
-| ~C-c C-k~  | godoc                    |               |
-| ~C-c C-j~  | godef-jump               |               |
-| ~C-c C-d~  | godef-describe           |               |
+| ~C-c C-a~    | go-import-add            |               |
+| ~C-c C-r~    | go-remove-unused-imports |               |
+| ~C-c C-g~    | go-goto-imports          |               |
+| ~C-c C-f~    | gofmt                    |               |
+| ~C-c C-k~    | godoc                    |               |
+| ~C-c C-j~    | godef-jump               |               |
+| ~C-c C-d~    | godef-describe           |               |
