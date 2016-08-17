@@ -40,4 +40,12 @@
       (tool-bar-mode -1)
       ))
 
+(defun trailing-whitespace-mode ()
+  (progn
+    (setq show-trailing-whitespace t)
+    (setq indicate-unused-lines t)
+    ))
+(add-hook 'prog-mode-hook 'trailing-whitespace-mode)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (provide 'init-editing-utils)
