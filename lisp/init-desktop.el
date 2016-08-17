@@ -1,3 +1,3 @@
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 
 (provide 'init-desktop)
