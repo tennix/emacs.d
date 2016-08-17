@@ -1,9 +1,13 @@
 (require 'package)
 (setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-	("elpa" . "http://tromey.com/elpa/")
-	("marmalade" . "http://marmalade-repo.org/packages/")
-	("melpa" . "http://melpa.milkbox.net/packages/")
+      '(
+	;;("gnu" . "http://elpa.gnu.org/packages/")
+	("gnu" . "http://elpa.zilongshanren.com/gnu/")
+	;; ("elpa" . "http://tromey.com/elpa/")
+	;; ("marmalade" . "http://marmalade-repo.org/packages/")
+	("marmalade" . "http://elpa.zilongshanren.com/marmalade/")
+	;; ("melpa" . "http://melpa.milkbox.net/packages/")
+	("melpa" . "http://elpa.zilongshanren.com/melpa/")
 	))
 (defun require-package (package &optional min-version no-refresh)
   "Install given PACKAGE, optionally requiring MIN-VERSION.
