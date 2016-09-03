@@ -7,6 +7,9 @@
 
 ;;; theme: monokai
 ;; (load-theme 'monokai t)
-(load-theme 'solarized-dark t)
+(if (display-graphic-p)
+    (load-theme 'solarized-dark t)
+  )
+
 
 (provide 'init-themes)
