@@ -19,6 +19,7 @@
 (require 'init-themes)
 (require 'init-uniquify)
 (require 'init-flycheck)
+(require 'init-flyspell)
 (require 'init-recentf)
 (require 'init-ido)
 (require 'init-editing-utils)
