@@ -6,7 +6,7 @@
 (add-hook 'tuareg-mode-hook 'merlin-mode t)
 (add-hook 'tuareg-mode-hook 'utop-minor-mode)
 (add-hook 'caml-mode-hook 'merlin-mode t)
-(setq merlin-command 'opam)
+(setq merlin-command "~/.opam/system/bin/ocamlmerlin")
 (with-eval-after-load 'company
   (add-to-list 'company-backends 'merlin-company-backend))
 (add-hook 'merlin-mode-hook 'company-mode)
