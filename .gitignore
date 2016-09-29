@@ -42,3 +42,4 @@ site-lisp/package/
 /viper
 .DS_Store
 abbrev_defs
+/projectile-bookmarks.eld

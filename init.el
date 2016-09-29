@@ -10,7 +10,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-(require 'init-benchmarking)
 (require 'init-elpa)
 (require 'init-utils)
 (require 'init-desktop)
@@ -37,6 +36,7 @@
 (require 'init-ocaml)
 (require 'init-haskell)
 (require 'init-web)
-(require 'init-helm)
 (require 'init-org)
 (require 'init-rfc)
+(require 'init-projectile)
+(require 'init-ivy)
