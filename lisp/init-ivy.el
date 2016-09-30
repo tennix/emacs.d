@@ -1,6 +1,9 @@
 (require-package 'ivy)
 (require-package 'counsel)
 (require-package 'swiper)
+(require-package 'smex)
+
+(setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
 
 (ivy-mode 1)
 (setq-default ivy-use-virtual-buffers t
