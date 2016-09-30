@@ -2,9 +2,9 @@
 
 (add-hook 'after-init-hook 'projectile-global-mode)
 
-(setq-default project-mode-line
+(setq-default projectile-mode-line
 	      '(:eval (if (file-remote-p default-directory)
-			  " Pr"
-			(format " Pr[%s]" (projectile-project-name)))))
+			  " Proj"
+			(format " Proj[%s]" (projectile-project-name)))))
 
 (provide 'init-projectile)

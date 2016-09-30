@@ -8,6 +8,6 @@
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
-(diminish 'paredit-mode "Par")
+(after-load 'paredit (diminish 'paredit-mode "()"))
 
 (provide 'init-paredit)

@@ -26,7 +26,7 @@
 
 (define-key ivy-mode-map (kbd "C-s") 'swiper)
 
-(diminish 'ivy-mode)
-(diminish 'counsel-mode)
+(after-load 'counsel (diminish 'counsel-mode))
+(after-load 'ivy (diminish 'ivy-mode))
 
 (provide 'init-ivy)
