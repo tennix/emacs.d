@@ -27,6 +27,7 @@
 (require 'init-editing-utils)
 (require 'init-yasnippet)
 (require 'init-paredit)
+(require 'init-folding)
 
 (require 'init-markdown)
 (require 'init-git)
