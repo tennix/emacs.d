@@ -15,12 +15,15 @@
 (require 'init-desktop)
 (require 'init-window)
 (require 'init-exec-path)
+
+(require-package 'diminish)
+
 (require 'init-themes)
 (require 'init-uniquify)
 (require 'init-flycheck)
 (require 'init-flyspell)
 (require 'init-recentf)
-(require 'init-ido)
+;; (require 'init-ido)
 (require 'init-editing-utils)
 (require 'init-yasnippet)
 (require 'init-paredit)
