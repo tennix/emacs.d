@@ -1,4 +1,5 @@
 (require-package 'unfill)
+(require-package 'rainbow-delimiters)
 
 (when (fboundp 'electric-pair-mode)
   (electric-pair-mode))
@@ -21,6 +22,8 @@
 ;; (tool-bar-mode -1)
 ;; (global-linum-mode)
 (global-subword-mode)
+
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (require-package 'highlight-symbol)
 (dolist (hook '(prog-mode-hook html-mode-hook css-mode-hook))
