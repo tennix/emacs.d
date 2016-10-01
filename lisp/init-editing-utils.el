@@ -1,6 +1,7 @@
 (require-package 'unfill)
 (require-package 'rainbow-delimiters)
 (require-package 'nlinum)
+(require-package 'highlight-indent-guides)
 
 (when (fboundp 'electric-pair-mode)
   (electric-pair-mode))
@@ -25,6 +26,9 @@
 (global-subword-mode)
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+(setq highlight-indent-guides-method 'character)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
 (require-package 'highlight-symbol)
 (dolist (hook '(prog-mode-hook html-mode-hook css-mode-hook))
