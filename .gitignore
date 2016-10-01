@@ -43,3 +43,4 @@ site-lisp/package/
 .DS_Store
 abbrev_defs
 /projectile-bookmarks.eld
+/.elscreen

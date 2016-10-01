@@ -44,3 +44,4 @@
 (require 'init-rfc)
 (require 'init-projectile)
 (require 'init-ivy)
+(require 'init-screen)
