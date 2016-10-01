@@ -31,6 +31,7 @@
   (add-hook hook 'highlight-symbol-mode)
   (add-hook hook 'highlight-symbol-nav-mode))
 (global-set-key (kbd "C-x M-r") 'highlight-symbol-query-replace)
+(diminish 'highlight-symbol-mode)
 
 (global-set-key (kbd "C-x ?") 'help-command)
 (global-set-key (kbd "C-h") 'delete-backward-char)
