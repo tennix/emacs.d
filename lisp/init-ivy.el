@@ -14,7 +14,7 @@
 	       (man . "^")
 	       (woman . "^")))
 
-(define-key ivy-minibuffer-map (kbd "c-j") #'ivy-immediate-done)
+(define-key ivy-minibuffer-map (kbd "C-j") #'ivy-immediate-done)
 (define-key ivy-minibuffer-map (kbd "RET") #'ivy-alt-done)
 
 (add-hook 'after-init-hook
