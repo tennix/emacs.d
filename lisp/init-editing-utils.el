@@ -2,6 +2,7 @@
 (require-package 'rainbow-delimiters)
 (require-package 'nlinum)
 (require-package 'highlight-indent-guides)
+(require-package 'avy)
 
 (when (fboundp 'electric-pair-mode)
   (electric-pair-mode))
@@ -41,6 +42,8 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
+;;; avy-goto-word can fast jump in visual screen even multi window
+(global-set-key (kbd "M-g w") 'avy-goto-word-or-subword-1)
 
 (if (display-graphic-p)
     (progn
