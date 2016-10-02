@@ -45,3 +45,4 @@
 (require 'init-projectile)
 (require 'init-ivy)
 (require 'init-screen)
+(require 'init-grep)
