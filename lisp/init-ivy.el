@@ -7,6 +7,7 @@
 
 (ivy-mode 1)
 (setq-default ivy-use-virtual-buffers t
+	      ivy-virtual-abbreviate 'full
 	     ivy-count-format ""
 	     projectile-completion-system 'ivy
 	     ivy-initial-inputs-alist
