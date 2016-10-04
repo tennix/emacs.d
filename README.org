@@ -5,7 +5,7 @@
 1. Use [[http://www.randomsample.de/profile-dotemacs.el][profile-dotemacs.el]] to find which S-exp loads slowly
    #+BEGIN_SRC sh
      wget http://www.randomsample.de/profile-dotemacs.el -O ~/downloads/profile-dotemacs.el
-     emacs -Q -l ~/downloads/profile-dotemacs.el -f profile-dotemacs
+     emacs -Q -l ~/downloads/profile-dotemacs.el --eval "(setq profile-dotemacs-file \"~/.emacs.d/init.el\")" -f profile-dotemacs
    #+END_SRC
 
 2. Use [[https://github.com/jwiegley/use-package][use-package]] for faster loading /init.el/. After finding which
