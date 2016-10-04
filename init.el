@@ -409,6 +409,7 @@
 ;;; org mode
 (use-package org-bullets :defer t)
 (use-package org
+  :defer t
   :init
   (setq org-hide-emphasis-markers t)
   (add-hook 'org-mode-hook 'org-bullets-mode)
