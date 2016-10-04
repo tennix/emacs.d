@@ -44,3 +44,5 @@ site-lisp/package/
 abbrev_defs
 /projectile-bookmarks.eld
 /.elscreen
+/elscreen
+/places
