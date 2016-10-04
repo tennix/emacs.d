@@ -108,7 +108,8 @@
 ;;; disable menu-bar, tool-bar, scroll-bar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
+(if window-system
+    (scroll-bar-mode -1))
 
 
 ;;; copy current buffer filename to clipboard
@@ -179,6 +180,7 @@
 
 ;; smart-mode-line: for more compact mode line
 (use-package smart-mode-line
+  :when window-system
   :config
   (sml/setup))
 
