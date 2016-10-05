@@ -457,13 +457,14 @@
 	      ("M-." . racer-find-definition)
 	      ("M-," . pop-tag-mark)
 	      ("TAB" . company-indent-or-complete-common))
+  :init
+  (if (eq system-type 'darwin)
+      (exec-path-from-shell-copy-env "RUST_SRC_PATH"))
   :config
-  (setq racer-rust-src-path "~/.rust/src"
-	racer-cmd "~/.cargo/bin/racer")
   (add-hook 'racer-mode-hook #'eldoc-mode))
-;; (use-package flycheck-rust
-;;   :config
-;;   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+(use-package flycheck-rust
+  :config
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 
 ;;; Python
