@@ -389,12 +389,14 @@
 ;;; Text search with grep, ag
 (use-package ag
   :defer t
-  :config (setq ag-highlight-search t))
+  :config
+  (setq ag-highlight-search t)
+  (add-hook 'ag-mode-hook 'wgrep-ag-setup))
 (use-package wgrep
   :config
   (setq grep-highlight-matches t
 	grep-scroll-output t))
-
+(use-package wgrep-ag :defer t)
 
 ;;; Git
 (use-package git-gutter
