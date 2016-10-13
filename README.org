@@ -29,6 +29,7 @@
 | ~C-+~        | increase text scale            | builtin          |
 | ~C--~        | decrease text scale            | builtin          |
 | ~C-c j~      | avy fast jump                  | avy              |
+| ~C-x u~      | undo tree visualize            | undo-tree        |
 | ~C-x g~      | git status                     | magit            |
 | ~C-x p~      | git previous modified hunk     | git-gutter       |
 | ~C-x n~      | git next modified hunk         | git gutter       |
