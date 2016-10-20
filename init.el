@@ -550,6 +550,8 @@
   (add-hook 'go-mode-hook (lambda ()
 			    (set (make-local-variable 'company-backends)
 				 '(company-go))
+			    (highlight-symbol-mode -1) ;use guru-hl-identifier mode instead
+			    (go-guru-hl-identifier-mode t)
 			    (go-eldoc-setup)))
   (add-hook 'before-save-hook 'gofmt-before-save))
 
