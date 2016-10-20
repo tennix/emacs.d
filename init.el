@@ -42,7 +42,7 @@
 
 
 ;;; builtin parenthesis editing
-;; (electric-pair-mode) ;; replaced with smartparens-mode
+(electric-pair-mode) ;; replaced with smartparens-mode
 (show-paren-mode t)	;; faster than show-smartparens-mode
 
 
