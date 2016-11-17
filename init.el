@@ -594,6 +594,7 @@
   :config (setq coffee-tab-width 2))
 
 
+(use-package groovy-mode :defer t)
 (use-package erlang :defer t)
 (use-package elixir-mode :defer t)
 (use-package nim-mode :defer t)
