@@ -434,7 +434,9 @@
   (add-hook 'yaml-mode-hook 'trailing-whitespace-mode))
 (use-package toml-mode :defer t)
 (use-package protobuf-mode :defer t)
-(use-package hcl-mode :defer t)
+(use-package hcl-mode
+  :defer t
+  :mode ("\\.\\tf\\'" . hcl-mode))
 (use-package markdown-mode
   :defer t
   :mode ("\\.\\(md\\|markdown\\)\\'" . markdown-mode))
