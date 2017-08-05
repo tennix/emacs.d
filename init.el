@@ -453,7 +453,7 @@
 
 ;;; Rust
 (use-package rust-mode
-  :mode ("\\.rs\\'" . rust-mode)
+  :mode ("\\.\\(rs\\|lalrpop\\)\\'" . rust-mode)
   :config (add-hook 'rust-mode-hook #'racer-mode))
 (use-package racer
   :diminish racer-mode
@@ -537,6 +537,7 @@
 ;;; Go
 (use-package go-eldoc :defer t)
 (use-package company-go :defer t)
+(use-package go-guru :defer t)
 (use-package go-mode
   :defer t
   :bind (("C-c C-r" . go-remove-unused-imports)
