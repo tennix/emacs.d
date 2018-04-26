@@ -222,6 +222,7 @@
 
 ;;; Highlight-indent-guides: similar to sublime-text
 (use-package highlight-indent-guides
+  :when window-system
   :init (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   :config (setq highlight-indent-guides-method 'character))
 
