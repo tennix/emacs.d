@@ -1,8 +1,8 @@
-This is [Tennix's](https://github.com/tennix) Emacs configuration file.
+This is [[https://github.com/tennix][Tennix]]'s Emacs configuration file.
 
 I use [[https://github.com/raxod502/straight.el][straight.el]] and [[https://github.com/jwiegley/use-package][use-package]] to manage my init.el
 
 Packages I strongly suggest are
-* magit: no need to explain
-* vterm: with this I can live in Emacs without running external terminal
-* flycheck
+- magit: no need to explain
+- vterm: with this I can live in Emacs without running external terminal
+- flycheck
