@@ -46,3 +46,7 @@ abbrev_defs
 /.elscreen
 /elscreen
 /places
+forge-database.sqlite
+transient/
+/.lsp-session-v1
+straight

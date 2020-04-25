@@ -1,42 +1,8 @@
-[tennix's](https://github.com/tennix) emacs configuration files
+This is [Tennix's](https://github.com/tennix) Emacs configuration file.
 
-* Emacs startup time
+I use [[https://github.com/raxod502/straight.el][straight.el]] and [[https://github.com/jwiegley/use-package][use-package]] to manage my init.el
 
-1. Use [[http://www.randomsample.de/profile-dotemacs.el][profile-dotemacs.el]] to find which S-exp loads slowly
-   #+BEGIN_SRC sh
-     wget http://www.randomsample.de/profile-dotemacs.el -O ~/downloads/profile-dotemacs.el
-     emacs -Q -l ~/downloads/profile-dotemacs.el --eval "(setq profile-dotemacs-file \"~/.emacs.d/init.el\")" -f profile-dotemacs
-   #+END_SRC
-
-2. Use [[https://github.com/jwiegley/use-package][use-package]] for faster loading /init.el/. After finding which
-   S-exp loads slowly, turn on =:defer t= options for lazy loading to
-   accelerate startup time.
-
-
-* Keybindings
-
-** global keybindings
-| keybinding | meaning                        | which package    |
-|------------+--------------------------------+------------------|
-| ~M-p~        | highlight-symbol-prev          | /highlight-symbol/ |
-| ~M-n~        | highlight-symbol-next          | /highlight-symbol/ |
-| ~C-x M-r~    | highlight-symbol-query-replace | /highlight-symbol/ |
-| ~C-x ?~      | help-command                   | /builtin/          |
-| ~C-h~        | delete-backward-char           | /builtin/          |
-| ~C-w~        | backward-kill-word             | /builtin/          |
-| ~C-x C-k~    | kill-region or current line    | /builtin/          |
-| ~C-c p f~    | open file in project           | projectile       |
-| ~C-+~        | increase text scale            | builtin          |
-| ~C--~        | decrease text scale            | builtin          |
-| ~C-c j~      | avy fast jump                  | avy              |
-| ~C-x u~      | undo tree visualize            | undo-tree        |
-| ~C-x g~      | git status                     | magit            |
-| ~C-x p~      | git previous modified hunk     | git-gutter       |
-| ~C-x n~      | git next modified hunk         | git gutter       |
-| ~C-c f~      | toggle folding node            | origami          |
-| ~C-c F~      | toggle folding all nodes       | origami          |
-| ~C-z C-c~    | create a new screen            | elscreen         |
-| ~C-z c~      | clone current screen           | elscreen         |
-| ~C-c k~      | kill current screen            | elscreen         |
-| ~C-c p~      | previous screen                | elscreen         |
-| ~C-c n~      | next screen                    | elscreen         |
+Packages I strongly suggest are
+* magit: no need to explain
+* vterm: with this I can live in Emacs without running external terminal
+* flycheck
