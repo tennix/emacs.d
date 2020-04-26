@@ -186,7 +186,9 @@
 
 ;;; Highlight-indent-guides: similar to sublime-text
 (use-package highlight-indent-guides
-  :init (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  :init
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
   :config (setq highlight-indent-guides-method 'character))
 
 ;;; smartparens: strcutural parenthesis editing
@@ -306,6 +308,8 @@
   (counsel-mode))
 (use-package swiper
   :bind (:map ivy-mode-map
+	      ;; M-n: chooses the symbol at cursor point
+	      ;; M-j: chooses next word
 	      ("C-s" . swiper)))
 
 ;; avy: quick jump to visible point
