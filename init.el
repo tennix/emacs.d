@@ -30,6 +30,7 @@
 	      bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
 	      case-fold-search t
 	      column-number-mode t
+	      inhibit-x-resources t	; avoid dark cursor when starting with emacs daemon
 	      make-backup-files nil
 	      tooltip-delay 1.5
 	      inhibit-startup-message t
@@ -189,7 +190,9 @@
   :init
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
-  :config (setq highlight-indent-guides-method 'character))
+  :config
+  (setq highlight-indent-guides-method 'character)
+  (setq highlight-indent-guides-suppress-auto-error t))
 
 ;;; smartparens: strcutural parenthesis editing
 ;; https://ebzzry.io/en/emacs-pairs/
@@ -245,6 +248,9 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
+;; This is required for Emacs < 27
+(defun project-root (project)
+    (car (project-roots project)))
 ;;; Flycheck for syntax check
 (use-package flycheck
   :init
