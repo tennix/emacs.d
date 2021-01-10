@@ -342,18 +342,31 @@
 ;; forge uses ghub to interact with github
 (use-package forge :after magit)
 
-;;; neotree: like NerdTree for vim
-;; Command-b: toggle neotree
-;; U: Go to upper directory
-;; H: Toggle display hidden files
-;; g: refresh
-;; C-c C-n: create new file or directory
-;; C-c C-d: delete file or directory
-;; C-c C-r: rename file or directory
-;; C-c C-p: copy file or directory
-(use-package neotree
-  :bind
-  (("s-b" . neotree-toggle)))
+;;; treemacs: tree layout file explorer
+;; Command-b: toggle treemacs
+(use-package treemacs
+  :config
+  (progn
+    (setq treemacs-eldoc-display t
+	  treemacs-width 30
+	  treemacs-mgx-git-entries 5000)
+    (treemacs-resize-icons 12)
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (treemacs-fringe-indicator-mode t)
+    (pcase (cons (not (null (executable-find "git")))
+                 (not (null treemacs-python-executable)))
+      (`(t . t)
+       (treemacs-git-mode 'deferred))
+      (`(t . _)
+       (treemacs-git-mode 'simple))))
+  :bind  (("s-b"   . treemacs)))      ; super-b is vscode file browser
+(use-package lsp-treemacs
+  :after lsp-mode treemacs)
+(use-package treemacs-projectile
+  :after treemacs projectile)
+(use-package treemacs-magit
+  :after treemacs magit)
 
 ;; Optional - provides snippet support.
 (use-package yasnippet
