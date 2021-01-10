@@ -261,17 +261,18 @@
 	flycheck-idle-change-delay 0.8
 	flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list))
 
-;; elgot: LSP client
+;; lsp: LSP client
 ;; M-.: go to definition
 ;; M-,; go back
-(use-package eglot
-  :bind
-  (:map eglot-mode-map
-	("C-c h" . eglot-help-at-point))
-  :config
-  (add-hook 'go-mode-hook 'eglot-ensure)
-  ;; disable flymake and use flycheck instead
-  (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1))))
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook (go-mode . lsp-deferred))
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+;; (use-package lsp-ui
+;;   :commands lsp-ui-mode)
 
 ;; Text search with ripgrep
 ;; wgrep is enabled by this
