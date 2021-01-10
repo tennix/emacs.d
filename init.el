@@ -387,6 +387,9 @@
   :mode (("\\.md\\'" . gfm-mode)
 	 ("\\.markdown\\'" . markdown-mode)))
 
+(use-package protobuf-mode)
+(use-package rust-mode)
+
 (use-package typescript-mode
   :defer t
   :config (add-hook 'typescript-mode-hook #'tide-mode))
