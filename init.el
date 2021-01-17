@@ -174,7 +174,7 @@
   :config
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t)
-  (load-theme 'doom-gruvbox t)		; doom-one is also very nice
+  (load-theme 'doom-zenburn t)		; doom-one, doom-gruvbox are also very nice
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)		; This requires all-the-icons
   (doom-themes-org-config))
