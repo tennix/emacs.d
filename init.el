@@ -58,9 +58,21 @@
 (recentf-mode 1)
 
 ;; org insert code: C-c C-,
-(global-set-key (kbd "C-c l") 'org-store-link)
+;; (global-set-key (kbd "C-c l") 'org-store-link) ;; I seldomly use this
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
+(setq org-todo-keywords
+      '((sequence "TODO" "|" "DONE" "CANCELED")))
+(setq org-log-done 'time)
+(setq org-agenda-files (list "~/org/todos.org"
+			     "~/org/notes.org"))
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/todos.org" "Tasks")
+         "* TODO %?\n  %i\nEntered on %U\n  ")
+        ("j" "Journal" entry (file+datetree "~/org/journals.org")
+         "* %?\nEntered on %U\n  %i\n  ")
+	("n" "Note" entry (file+headline "~/org/notes.org" "Notes")
+	 "* %?\n %i\n ")))
 
 (defun eh-ivy-return-recentf-index (dir)
   (when (and (boundp 'recentf-list)
