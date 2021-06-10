@@ -414,7 +414,10 @@
 	 ("\\.markdown\\'" . markdown-mode)))
 
 (use-package protobuf-mode)
-(use-package rust-mode)
+(use-package flycheck-rust)
+(use-package rust-mode
+  :hook ((rust-mode . flycheck-rust-setup)))
+(use-package toml-mode)
 
 (use-package typescript-mode
   :defer t
