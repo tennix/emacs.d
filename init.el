@@ -54,6 +54,7 @@
 (setq-default recentf-max-saved-items 500
 	      recentf-exclude '("^/tmp/"
 				"^/ssh:"
+				"^/docker:"
 				"\\.emacs\\.d/elpa/"))
 (recentf-mode 1)
 
@@ -418,6 +419,9 @@
 (use-package rust-mode
   :hook ((rust-mode . flycheck-rust-setup)))
 (use-package toml-mode)
+;; docker-tramp allows to edit files in docker container using tramp
+;; C-x C-f /docker:user@container_name:/path/to/file
+(use-package docker-tramp)
 
 (use-package typescript-mode
   :defer t
