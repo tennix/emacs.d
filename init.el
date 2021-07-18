@@ -248,6 +248,10 @@
   (add-hook 'prog-mode-hook 'company-mode)
   :config
   (setq company-tooltip-align-annotations t))
+;; Make C-h and C-w work as usual in company mode
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-h") 'delete-backward-char)
+  (define-key company-active-map (kbd "C-w") 'backward-kill-word))
 
 (use-package go-mode
   :config
