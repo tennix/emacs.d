@@ -145,8 +145,8 @@
 (global-set-key (kbd "C-x C-k") 'kill-region)
 
 ;;; increase or decrease text scale conveniently
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "S-+") 'text-scale-increase)
+(global-set-key (kbd "S--") 'text-scale-decrease)
 
 ;;; replace buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
