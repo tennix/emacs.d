@@ -371,8 +371,9 @@
 ;; forge uses ghub to interact with github
 (use-package forge :after magit)
 
-;;; treemacs: tree layout file explorer
+;;; treemacs: tree layout project explorer
 ;; Command-b: toggle treemacs
+;; session persist at $HOME/.emacs.d/.cache/treemacs-persist
 (use-package treemacs
   :config
   (progn
