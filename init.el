@@ -44,6 +44,10 @@
 
 ;;; subword mode for prog-mode CamelCase and snake_case word
 (add-hook 'prog-mode-hook 'subword-mode)
+;; Enable hl-line-mode for prog mode and text-mode
+(add-hook 'prog-mode-hook 'hl-line-mode)
+(add-hook 'text-mode-hook 'hl-line-mode)
+
 
 ;;; automatically revert files
 (setq-default global-auto-revert-non-file-buffers t
