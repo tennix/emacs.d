@@ -159,13 +159,14 @@
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
-(use-package eterm-256color)
+;; vterm: best terminal in emacs
 ;; C-c C-t: toggle vterm-copy-mode
 ;; better to use tmux inside vterm
 (use-package vterm
   :config
   (setq vterm-max-scrollback 10000)
-  (setq vterm-term-environment-variable "eterm-256color"))
+  (setq vterm-buffer-name-string "vterm %s") ; Define prompt in bashrc/zshrc: PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+  (setq vterm-term-environment-variable "xterm"))
 
 ;; doom-themes are a collection of beatiful themes
 (use-package doom-themes
