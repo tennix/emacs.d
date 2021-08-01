@@ -267,9 +267,6 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
-;; This is required for Emacs < 27
-(defun project-root (project)
-    (car (project-roots project)))
 ;;; Flycheck for syntax check
 (use-package flycheck
   :init
