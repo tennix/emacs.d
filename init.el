@@ -161,6 +161,9 @@
   (doom-themes-neotree-config)		; This requires all-the-icons
   (doom-themes-org-config))
 (use-package all-the-icons)
+(use-package rainbow-delimiters
+  :init
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 ;; org insert code: C-c C-,
 (setq org-log-done 'time)
 (setq org-agenda-files (list "~/my-org-files/"))
