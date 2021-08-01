@@ -156,14 +156,23 @@
   :config
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t)
-  (load-theme 'doom-zenburn t)		; doom-one, doom-gruvbox are also very nice
+  ;; doom-one, doom-gruvbox, doom-zenburn looks very nice
+  (load-theme 'doom-one t)
   (doom-themes-visual-bell-config)
-  (doom-themes-neotree-config)		; This requires all-the-icons
+  (setq doom-themes-treemacs-theme "doom-atom")
+  (doom-themes-treemacs-config)
   (doom-themes-org-config))
+;; Run M-x all-the-icons-install-fonts to install the fonts
 (use-package all-the-icons)
+;; This makes the virtual buffers darker than file buffers
+(use-package solaire-mode)
+(solaire-global-mode +1)
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
 (use-package rainbow-delimiters
   :init
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
 ;; org insert code: C-c C-,
 (setq org-log-done 'time)
 (setq org-agenda-files (list "~/my-org-files/"))
