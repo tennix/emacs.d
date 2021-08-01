@@ -342,8 +342,7 @@
 ;; avy: quick jump to visible point
 (use-package avy
   :bind
-  (("C-c j" . avy-goto-word-or-subword-1)
-   ("C-c g" . avy-goto-line)))
+  (("C-c j" . avy-goto-word-or-subword-1)))
 
 ;; dumb-jump: jump to definition without language server, use rg for fuzzy searching
 (use-package dumb-jump
@@ -355,7 +354,9 @@
 
 ;;; Git
 (use-package magit
-  :bind (("C-x g" . magit-status)))
+  :bind (("C-c g" . magit-status)
+	 ("C-c b" . magit-blame-addition)
+	 ("C-c l" . magit-log-buffer-file)))
 (use-package diff-hl)
 (global-diff-hl-mode)
 ;; forge uses ghub to interact with github
