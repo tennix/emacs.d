@@ -353,6 +353,8 @@
 ;;; Git
 (use-package magit
   :bind (("C-x g" . magit-status)))
+(use-package diff-hl)
+(global-diff-hl-mode)
 ;; forge uses ghub to interact with github
 (use-package forge :after magit)
 
