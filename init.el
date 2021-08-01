@@ -186,6 +186,10 @@
     (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
+;; Expand region increases the selected region by semantic units
+(use-package expand-region
+  :bind (("C-=" . er/expand-region)))
+
 ;;; which-key: promp a window to display key when press incomplete key prefix
 (use-package which-key
   :config
