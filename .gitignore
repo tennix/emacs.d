@@ -50,3 +50,5 @@ forge-database.sqlite
 transient/
 /.lsp-session-v1
 straight
+/.cache
+/eln-cache/
