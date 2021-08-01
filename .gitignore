@@ -52,3 +52,4 @@ transient/
 straight
 /.cache
 /eln-cache/
+org-roam.db

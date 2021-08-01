@@ -62,23 +62,6 @@
 				"\\.emacs\\.d/elpa/"))
 (recentf-mode 1)
 
-;; org insert code: C-c C-,
-;; (global-set-key (kbd "C-c l") 'org-store-link) ;; I seldomly use this
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c c") 'org-capture)
-(setq org-todo-keywords
-      '((sequence "TODO" "|" "DONE" "CANCELED")))
-(setq org-log-done 'time)
-(setq org-agenda-files (list "~/org/todos.org"
-			     "~/org/notes.org"))
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/todos.org" "Tasks")
-         "* TODO %?\n  %i\nEntered on %U\n  ")
-        ("j" "Journal" entry (file+datetree "~/org/journals.org")
-         "* %?\nEntered on %U\n  %i\n  ")
-	("n" "Note" entry (file+headline "~/org/notes.org" "Notes")
-	 "* %?\n %i\n ")))
-
 (defun eh-ivy-return-recentf-index (dir)
   (when (and (boundp 'recentf-list)
              recentf-list)
@@ -178,6 +161,24 @@
   (doom-themes-neotree-config)		; This requires all-the-icons
   (doom-themes-org-config))
 (use-package all-the-icons)
+;; org insert code: C-c C-,
+(setq org-log-done 'time)
+(setq org-agenda-files (list "~/my-org-files/"))
+(use-package org-roam
+      :custom
+      (org-roam-directory (file-truename "~/my-org-files/"))
+      :bind (("C-c n l" . org-roam-buffer-toggle)
+             ("C-c n f" . org-roam-node-find)
+             ("C-c n g" . org-roam-graph)
+             ("C-c n i" . org-roam-node-insert)
+             ("C-c n c" . org-roam-capture)
+             ;; Dailies
+             ("C-c n j" . org-roam-dailies-capture-today))
+      :config
+      (setq org-roam-v2-ack t)
+      (org-roam-setup)
+      ;; If using org-roam-protocol
+      (require 'org-roam-protocol))
 
 ;;; Read environment variable from shell config
 (use-package exec-path-from-shell
