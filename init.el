@@ -151,6 +151,17 @@
   (setq vterm-buffer-name-string "vterm %s") ; Define prompt in bashrc/zshrc: PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
   (setq vterm-term-environment-variable "xterm"))
 
+;; Making M-y to paste kill-ring work for vterm
+(defun vterm-counsel-yank-pop-action (orig-fun &rest args)
+  (if (equal major-mode 'vterm-mode)
+      (let ((inhibit-read-only t)
+            (yank-undo-function (lambda (_start _end) (vterm-undo))))
+        (cl-letf (((symbol-function 'insert-for-yank)
+               (lambda (str) (vterm-send-string str t))))
+            (apply orig-fun args)))
+    (apply orig-fun args)))
+(advice-add 'counsel-yank-pop-action :around #'vterm-counsel-yank-pop-action)
+
 ;; doom-themes are a collection of beatiful themes
 (use-package doom-themes
   :config
