@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: Deployment
+# key: Deployment
+# expand-env: ((yas-indent-line 'fixed))
+# --
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${1:name}
+  namespace: ${2:default}
+  labels:
+    ${3:key}: ${4:val}
+spec:
+  replicas: ${5:1}
+  selector:
+    matchLabels:
+      ${4:key}: ${5:val}
+  template:
+    metadata:
+      labels:
+        ${6:key}: ${7:val}
+    spec:
+      containers:
+      - name: ${8:name}
+        image: ${9:image}

@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: init
+# key: init
+# binding: direct-keybinding
+# --
+func init() {
+    $0
+}

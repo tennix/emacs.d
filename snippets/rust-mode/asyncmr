@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: async fn main() -> Result<()> { ... }
+# key: asyncmr
+# --
+#[tokio::main]
+async fn main() -> ${1:Result<$2>} {
+    $0
+}

@@ -1,0 +1,38 @@
+# -*- mode: snippet -*-
+# name: StatefulSet
+# key: StatefulSet
+# expand-env: ((yas-indent-line 'fixed))
+# --
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ${1:name}
+  namespace: ${2:default}
+  labels:
+    ${3:key}: ${4:val}
+spec:
+  replicas: ${5:1}
+  serviceName: ${6:service}
+  selector:
+    matchLabels:
+      ${3:key}: ${4:val}
+  template:
+    metadata:
+      labels:
+        ${3:key}: ${4:val}
+    spec:
+      containers:
+      - name: ${1:name}
+        image: ${7:image}
+        volumeMounts:
+        - name: ${8:data}
+          mountPath: ${9:/data}
+  volumeClaimTemplates:
+  - metadata:
+      name: ${8:data}
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: ${10:standard}
+      resources:
+        requests:
+          storage: ${11:10Gi}

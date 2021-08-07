@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: async fn name() { ... }
+# key: async
+# --
+async fn $1($2) {
+    $0
+}

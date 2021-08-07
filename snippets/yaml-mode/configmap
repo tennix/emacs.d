@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: ConfigMap
+# key: cm
+# expand-env: ((yas-indent-line 'fixed))
+# --
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ${1:name-config}
+  namespace: ${2:default}
+data:
+  ${3:key}: ${4:val}
+  $0

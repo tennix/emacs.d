@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: enum
+# key: strcut
+# --
+enum $1 {
+    $0
+}

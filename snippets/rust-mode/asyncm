@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: async fn main() { ... }
+# key: asyncmain
+# --
+#[tokio::main]
+async fn main() {
+    $0
+}

@@ -403,6 +403,7 @@
   :config
   (add-hook 'prog-mode-hook #'yas-minor-mode)
   (add-hook 'yaml-mode-hook #'yas-minor-mode)
+  (add-hook 'protobuf-mode-hook #'yas-minor-mode)
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   (yas-reload-all))
 

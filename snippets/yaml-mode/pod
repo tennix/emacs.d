@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: Pod
+# key: Pod
+# expand-env: ((yas-indent-line 'fixed))
+# --
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ${1:name}
+  namespace: ${2:default}
+spec:
+  containers:
+  - name: ${3:name}
+    image: ${4:image}
+    $0

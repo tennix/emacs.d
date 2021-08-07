@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: persistentvolumeclaim
+# key: PVC
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region nil))
+# --
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ${1:name}
+  labels:
+    # insert any desired labels to identify your claim
+    app: ${2:app}
+spec:
+  # The metadata.name field from the PersistentVolume to match
+  volumeName: ${3:volumeName}
+  accessModes:
+    - ${4:ReadWriteOnce}
+  resources:
+    requests:
+      # The amount of the volume's storage to request
+      storage: ${5:20Gi}
