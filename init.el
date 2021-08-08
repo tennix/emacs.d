@@ -192,6 +192,8 @@
 (use-package org-roam
       :custom
       (org-roam-directory (file-truename "~/my-org-files/"))
+      :init
+      (setq org-roam-v2-ack t)
       :bind (("C-c n l" . org-roam-buffer-toggle)
              ("C-c n f" . org-roam-node-find)
              ("C-c n g" . org-roam-graph)
@@ -200,7 +202,6 @@
              ;; Dailies
              ("C-c n j" . org-roam-dailies-capture-today))
       :config
-      (setq org-roam-v2-ack t)
       (org-roam-setup)
       ;; If using org-roam-protocol
       (require 'org-roam-protocol))
