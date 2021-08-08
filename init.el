@@ -300,6 +300,7 @@
   (define-key company-active-map (kbd "C-w") 'backward-kill-word))
 
 (use-package go-mode
+  :defer t
   :config
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
@@ -332,7 +333,8 @@
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 ;; (use-package lsp-ui
 ;;   :commands lsp-ui-mode)
-(use-package lsp-ivy)
+(use-package lsp-ivy
+  :defer t)
 
 ;; Text search with ripgrep
 ;; wgrep is enabled by this
@@ -471,14 +473,16 @@
   :mode (("\\.md\\'" . gfm-mode)
 	 ("\\.markdown\\'" . markdown-mode)))
 
-(use-package protobuf-mode)
+(use-package protobuf-mode
+  :defer t)
 (use-package flycheck-rust)
 (use-package rust-mode
   :hook ((rust-mode . flycheck-rust-setup)))
 (use-package toml-mode)
 ;; docker-tramp allows to edit files in docker container using tramp
 ;; C-x C-f /docker:user@container_name:/path/to/file
-(use-package docker-tramp)
+(use-package docker-tramp
+  :defer t)
 
 (use-package typescript-mode
   :defer t
