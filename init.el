@@ -217,6 +217,8 @@
 ;;; Read environment variable from shell config
 (use-package exec-path-from-shell
   :when (memq window-system '(mac ns))
+  :init
+  (setq exec-path-from-shell-arguments nil)
   :config
   (dolist (var '("SSH_AUTH_SOCK"
 		 "SSH_AGENT_PID"
