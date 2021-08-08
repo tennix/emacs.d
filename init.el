@@ -143,7 +143,8 @@
 ;; use-package
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
-
+;; use-package-report to display use-package statistics
+(setq use-package-compute-statistics t)
 ;; vterm: best terminal in emacs
 ;; C-c C-t: toggle vterm-copy-mode
 ;; better to use tmux inside vterm
