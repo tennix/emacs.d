@@ -33,6 +33,8 @@
 	      inhibit-x-resources t	; avoid dark cursor when starting with emacs daemon
 	      make-backup-files nil
 	      tooltip-delay 1.5
+	      read-process-output-max (* 1024 1024) ; 1mb
+	      gc-cons-threshold 100000000
 	      inhibit-startup-message t
 	      initial-scratch-message ""
 	      ediff-split-window-function 'split-window-horizontally
@@ -305,14 +307,21 @@
 ;; M-.: go to definition
 ;; M-,; go back
 (use-package lsp-mode
+  :config
+  (setq lsp-idle-delay 0.500)
+  (setq lsp-log-io nil)
   :commands (lsp lsp-deferred)
-  :hook (go-mode . lsp-deferred))
+  :hook
+  (go-mode . lsp-deferred)
+  (rust-mode . lsp-deferred))
+(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
 (defun lsp-go-install-save-hooks ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 ;; (use-package lsp-ui
 ;;   :commands lsp-ui-mode)
+(use-package lsp-ivy)
 
 ;; Text search with ripgrep
 ;; wgrep is enabled by this
