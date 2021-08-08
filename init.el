@@ -437,6 +437,10 @@
 ;; edit-indirect is required for markdown mode to edit code blocks in indirect buffers using C-c '
 (use-package edit-indirect :defer t)
 
+;; Youdao dictionary
+(use-package youdao-dictionary
+  :bind ("C-c y" . youdao-dictionary-search-at-point))
+
 ;; markdown mode
 ;; Styling text is prefixed with C-c C-s key binding
 ;; Toggle command is prefixed with C-c C-x key binding
