@@ -465,11 +465,6 @@
 (use-package markdown-mode
   :defer t
   :commands (markdown-mode gfm-mode)
-  :config		  ; indent with 4 whitespaces in markdown mode
-  (add-hook 'markdown-mode-hook '(lambda ()
-				   (setq indent-tabs-mode nil)
-				   (setq indent-line-function (quote insert-tab))
-				   (setq tab-width 4)))
   :mode (("\\.md\\'" . gfm-mode)
 	 ("\\.markdown\\'" . markdown-mode)))
 
