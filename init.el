@@ -19,10 +19,10 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;;; Emacs auto generates customization file
-;; custom.el file must be exist
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+;;; Use another file to store customizations instead of init.el
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 ;;; some good default settings
 (fset 'yes-or-no-p 'y-or-n-p)
