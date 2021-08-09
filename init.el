@@ -191,10 +191,9 @@
 (setq org-log-done 'time)
 (setq org-agenda-files (list "~/my-org-files/"))
 (use-package org-roam
-      :custom
-      (org-roam-directory (file-truename "~/my-org-files/"))
       :init
       (setq org-roam-v2-ack t)
+      (setq org-roam-directory (file-truename "~/my-org-files/"))
       :bind (("C-c n l" . org-roam-buffer-toggle)
              ("C-c n f" . org-roam-node-find)
              ("C-c n g" . org-roam-graph)
