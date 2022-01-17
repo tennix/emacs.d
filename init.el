@@ -64,6 +64,14 @@
 				"\\.emacs\\.d/elpa/"))
 (recentf-mode 1)
 
+;; pulse when switch buffer
+(defun pulse-line (&rest _)
+  "Pulse the current line."
+  (pulse-momentary-highlight-one-line (point)))
+(dolist (command '(scroll-up-command scroll-down-command
+				     recenter-top-bottom other-window))
+  (advice-add command :after #'pulse-line))
+
 (defun eh-ivy-return-recentf-index (dir)
   (when (and (boundp 'recentf-list)
              recentf-list)
