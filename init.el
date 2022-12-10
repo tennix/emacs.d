@@ -187,6 +187,12 @@
     (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
+(use-package tree-sitter
+  :config
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+(use-package tree-sitter-langs)
+
 ;; Expand region increases the selected region by semantic units
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))
