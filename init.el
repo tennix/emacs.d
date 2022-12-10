@@ -135,8 +135,8 @@
       (let ((inhibit-read-only t)
             (yank-undo-function (lambda (_start _end) (vterm-undo))))
         (cl-letf (((symbol-function 'insert-for-yank)
-               (lambda (str) (vterm-send-string str t))))
-            (apply orig-fun args)))
+		   (lambda (str) (vterm-send-string str t))))
+          (apply orig-fun args)))
     (apply orig-fun args)))
 (advice-add 'counsel-yank-pop-action :around #'vterm-counsel-yank-pop-action)
 
@@ -247,11 +247,12 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))
 
-(use-package go-mode
-  :defer t
+;; auto format using external programming language formatter
+(use-package apheleia
   :config
-  (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'gofmt-before-save))
+  (apheleia-global-mode +1))
+
+(use-package go-mode)
 
 ;; Lightweight LSP client
 (use-package eglot)
