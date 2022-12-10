@@ -253,36 +253,8 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
-;;; Flycheck for syntax check
-(use-package flycheck
-  :init
-  (add-hook 'prog-mode-hook 'flycheck-mode)
-  (add-hook 'markdown-mode-hook 'flycheck-mode)
-  :config
-  (setq flycheck-check-syntax-automatically '(save idle-change mode-enabled)
-	flycheck-idle-change-delay 0.8
-	flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list))
-
-;; lsp: LSP client
-;; M-.: go to definition
-;; M-,; go back
-(use-package lsp-mode
-  :config
-  (setq lsp-idle-delay 0.500)
-  (setq lsp-log-io nil)
-  :commands (lsp lsp-deferred)
-  :hook
-  (go-mode . lsp-deferred)
-  (rust-mode . lsp-deferred))
-(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
-(defun lsp-go-install-save-hooks ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t))
-(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
-;; (use-package lsp-ui
-;;   :commands lsp-ui-mode)
-(use-package lsp-ivy
-  :defer t)
+;; Lightweight LSP client
+(use-package eglot)
 
 ;; A workaround when hitting "Too many open files" error with LSP
 ;; https://www.blogbyben.com/2022/05/gotcha-emacs-on-mac-os-too-many-files.html
@@ -441,8 +413,6 @@
       (`(t . _)
        (treemacs-git-mode 'simple))))
   :bind  (("s-b"   . treemacs)))      ; super-b is vscode file browser
-(use-package lsp-treemacs
-  :after lsp-mode treemacs)
 (use-package treemacs-projectile
   :after treemacs projectile)
 (use-package treemacs-magit
@@ -488,9 +458,7 @@
 
 (use-package protobuf-mode
   :defer t)
-(use-package flycheck-rust)
-(use-package rust-mode
-  :hook ((rust-mode . flycheck-rust-setup)))
+(use-package rust-mode)
 (use-package toml-mode)
 ;; docker-tramp allows to edit files in docker container using tramp
 ;; C-x C-f /docker:user@container_name:/path/to/file
@@ -498,14 +466,7 @@
   :defer t)
 
 (use-package typescript-mode
-  :defer t
-  :config (add-hook 'typescript-mode-hook #'tide-mode))
-(use-package tide
-  :defer t
-  :after (typescript-mode flycheck)
-  :config (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions nil :placeOpenBraceOnNewLineForFunctions nil :insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis nil :insertSpaceAfterOpeningAndBeforeClosingNoneemptyBrackets nil :insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces nil))
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save)))
+  :init
+  (setq typescript-indent-level 2))
 
 ;;; init.el ends here
