@@ -72,39 +72,6 @@
 				     recenter-top-bottom other-window))
   (advice-add command :after #'pulse-line))
 
-(defun eh-ivy-return-recentf-index (dir)
-  (when (and (boundp 'recentf-list)
-             recentf-list)
-    (let ((files-list
-           (cl-subseq recentf-list
-                      0 (min (- (length recentf-list) 1) 20)))
-          (index 0))
-      (while files-list
-        (if (string-match-p dir (car files-list))
-            (setq files-list nil)
-          (setq index (+ index 1))
-          (setq files-list (cdr files-list))))
-      index)))
-
-(defun eh-ivy-sort-file-function (x y)
-  (let* ((x (concat ivy--directory x))
-         (y (concat ivy--directory y))
-         (x-mtime (nth 5 (file-attributes x)))
-         (y-mtime (nth 5 (file-attributes y))))
-    (if (file-directory-p x)
-        (if (file-directory-p y)
-            (let ((x-recentf-index (eh-ivy-return-recentf-index x))
-                  (y-recentf-index (eh-ivy-return-recentf-index y)))
-              (if (and x-recentf-index y-recentf-index)
-                  ;; Directories is sorted by `recentf-list' index
-                  (< x-recentf-index y-recentf-index)
-                (string< x y)))
-          t)
-      (if (file-directory-p y)
-          nil
-        ;; Files is sorted by mtime
-        (time-less-p y-mtime x-mtime)))))
-
 ;;; dealing with trailing whitespace
 (defun trailing-whitespace-mode ()
   "Show whitespaces and unused lines."
@@ -280,17 +247,6 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))
 
-;;; Company mode: modular in-buffer completion framework for Emacs
-(use-package company
-  :init
-  (add-hook 'prog-mode-hook 'company-mode)
-  :config
-  (setq company-tooltip-align-annotations t))
-;; Make C-h and C-w work as usual in company mode
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "C-h") 'delete-backward-char)
-  (define-key company-active-map (kbd "C-w") 'backward-kill-word))
-
 (use-package go-mode
   :defer t
   :config
@@ -345,43 +301,98 @@
   :config
   (rg-enable-default-bindings))
 
-;;; smex used with counsel
-(use-package smex
-  :config
-  (setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
-  (smex-initialize))
+(use-package vertico
+  ;; :straight (:files (:defaults "extensions/*")
+  ;;                   :includes (vertico-directory
+  ;; 			       vertico-buffer
+  ;; 			       vertico-mouse))
+  :init
+  (vertico-mode))
 
+(use-package consult
+  :bind (;; C-c bindings (mode-specific-map)
+	 ("C-c h" . consult-history)
+         ("C-c m" . consult-mode-command)
+         ("C-c k" . consult-kmacro)
+	 ("C-x b" . consult-buffer)
+	 ("M-y" . consult-yank-pop)
+	 ;; M-s bindings (search-map)
+         ("M-s d" . consult-find)
+         ("M-s D" . consult-locate)
+         ("M-s g" . consult-grep)
+         ("M-s G" . consult-git-grep)
+         ("M-s r" . consult-ripgrep)
+         ("M-s l" . consult-line)
+         ("M-s L" . consult-line-multi)
+         ("M-s m" . consult-multi-occur)
+         ("M-s k" . consult-keep-lines)
+         ("M-s u" . consult-focus-lines)
+	 ;; Isearch integration
+	 ("M-s e" . consult-isearch-history)
+	 :map isearch-mode-map
+         ("M-e" . consult-isearch-history)         ;; orig. isearch-edit-string
+         ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
+         ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
+         ("M-s L" . consult-line-multi))
+  :hook (completion-list-mode . consult-preview-at-point-mode)
+  :init
+  (setq register-preview-delay 0.5
+        register-preview-function #'consult-register-format)
+  (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref))
 
-;;; Ivy, swiper, counsel, avy
-(use-package ivy
-  :bind (:map ivy-minibuffer-map
-	      ;; ido style directory navigation
-	      ("C-j" . ivy-immediate-done)
-	      ("RET" . ivy-alt-done))
+;; Useful commands:
+;; consult-lsp-file-symbols: Select current file symbols
+;; consult-lsp-symbols: Select symbols from current workspace
+;; consult-lsp-diagnostics: Select diagnostics from current workspace
+;; (use-package consult-lsp)
+(use-package consult-projectile)
+
+;; This is lightweight alternative to company-mode
+;; M-SPC corfu-insert-separator
+(use-package corfu
+  :init
+  (setq corfu-auto t
+	corfu-quit-no-match 'separator)
+  (global-corfu-mode))
+
+(use-package orderless
+  :init
+  (setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles basic partial-completion)))))
+
+;; Enable rich annotations using the Marginalia package
+(use-package marginalia
+  ;; Either bind `marginalia-cycle' globally or only in the minibuffer
+  :bind (("M-A" . marginalia-cycle)
+         :map minibuffer-local-map
+         ("M-A" . marginalia-cycle))
+  ;; The :init configuration is always executed (Not lazy!)
+  :init
+  ;; Must be in the :init section of use-package such that the mode gets
+  ;; enabled right away. Note that this forces loading the package.
+  (marginalia-mode))
+
+(use-package embark
+  :bind
+  (("C-." . embark-act)         ;; pick some comfortable binding
+   ("C-;" . embark-dwim)        ;; good alternative: M-.
+  ; ("C-h B" . embark-bindings);; alternative for `describe-bindings'
+   )
+  :init
+  ;; Optionally replace the key help with a completing-read interface
+  (setq prefix-help-command #'embark-prefix-help-command)
   :config
-  (setq ivy-use-virtual-buffers t
-	ivy-virtual-abbreviate 'full
-	ivy-extra-directories nil
-	ivy-count-format "(%d/%d) "
-	projectile-completion-system 'ivy
-	ivy-initial-inputs-alist '((counsel-M-x . "^")
-				   (man . "^")
-				   (woman . "^")))
-  ;; sort files by mtime
-  (add-to-list 'ivy-sort-functions-alist
-	       '(read-file-name-internal . eh-ivy-sort-file-function))
-  (ivy-mode 1))
-;; Counsel: search
-;; counsel-rg, counsel-git-grep
-(use-package counsel
-  :config
-  (setq counsel-mode-override-describe-bindings t)
-  (counsel-mode))
-(use-package swiper
-  :bind (:map ivy-mode-map
-	      ;; M-n: chooses the symbol at cursor point
-	      ;; M-j: chooses next word
-	      ("C-s" . swiper)))
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+;; Consult users will also want the embark-consult package.
+(use-package embark-consult
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
 
 ;; avy: quick jump to visible point
 (use-package avy
@@ -491,7 +502,7 @@
   :config (add-hook 'typescript-mode-hook #'tide-mode))
 (use-package tide
   :defer t
-  :after (typescript-mode company flycheck)
+  :after (typescript-mode flycheck)
   :config (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions nil :placeOpenBraceOnNewLineForFunctions nil :insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis nil :insertSpaceAfterOpeningAndBeforeClosingNoneemptyBrackets nil :insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces nil))
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)
