@@ -437,7 +437,7 @@
 (use-package dockerfile-mode)
 (use-package yaml-mode
   :config
-  (add-hook 'yaml-mode-hook 'trailing-whitespace-mode))
+  (add-hook 'yaml-mode-hook 'prog-mode))
 
 ;; edit-indirect is required for markdown mode to edit code blocks in indirect buffers using C-c '
 (use-package edit-indirect :defer t)
@@ -466,7 +466,10 @@
 (use-package protobuf-mode
   :defer t)
 (use-package rust-mode)
-(use-package toml-mode)
+(use-package toml-mode
+  :config
+  (add-hook 'toml-mode-hook 'prog-mode))
+
 ;; docker-tramp allows to edit files in docker container using tramp
 ;; C-x C-f /docker:user@container_name:/path/to/file
 (use-package docker-tramp
