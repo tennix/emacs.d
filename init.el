@@ -43,6 +43,7 @@
 ;;; builtin parenthesis editing
 (show-paren-mode t)  ;; faster than show-smartparens-mode
 (save-place-mode 1)  ;; save cursor place when close file
+(savehist-mode 1)    ;; save minibuffer history
 
 ;;; subword mode for prog-mode CamelCase and snake_case word
 (add-hook 'prog-mode-hook 'subword-mode)
