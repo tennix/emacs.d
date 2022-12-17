@@ -436,9 +436,7 @@
   (yas-reload-all))
 
 (use-package dockerfile-mode)
-(use-package yaml-mode
-  :config
-  (add-hook 'yaml-mode-hook 'prog-mode))
+(use-package yaml-mode)
 
 ;; edit-indirect is required for markdown mode to edit code blocks in indirect buffers using C-c '
 (use-package edit-indirect :defer t)
@@ -466,10 +464,10 @@
 
 (use-package protobuf-mode
   :defer t)
-(use-package rust-mode)
-(use-package toml-mode
+(use-package rust-mode
   :config
-  (add-hook 'toml-mode-hook 'prog-mode))
+  (add-hook 'rust-mode-hook 'eglot-ensure))
+(use-package toml-mode)
 
 ;; docker-tramp allows to edit files in docker container using tramp
 ;; C-x C-f /docker:user@container_name:/path/to/file
