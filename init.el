@@ -481,6 +481,9 @@
 (use-package typescript-mode
   :init
   (setq typescript-indent-level 2))
+(use-package json-mode
+  :config
+  (setq json-reformat:indent-width 2))
 (setq js-indent-level 2)
 
 ;;; init.el ends here
