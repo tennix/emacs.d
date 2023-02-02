@@ -281,6 +281,10 @@
   :config
   (rg-enable-default-bindings))
 
+(use-package ctrlf
+  :init
+  (ctrlf-mode +1))
+
 (use-package vertico
   ;; :straight (:files (:defaults "extensions/*")
   ;;                   :includes (vertico-directory
