@@ -340,6 +340,17 @@
 	corfu-quit-no-match 'separator)
   (global-corfu-mode))
 
+(straight-use-package
+ '(popon :type git :repo "https://codeberg.org/akib/emacs-popon.git"))
+
+(straight-use-package
+ '(corfu-terminal
+   :type git
+   :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
+
+(unless (display-graphic-p)
+  (corfu-terminal-mode +1))
+
 (use-package orderless
   :init
   (setq completion-styles '(orderless basic)
