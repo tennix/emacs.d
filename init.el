@@ -115,6 +115,8 @@
 
 ;;; replace buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-n") 'tab-bar-switch-to-next-tab)
+(global-set-key (kbd "C-x C-p") 'tab-bar-switch-to-prev-tab)
 
 ;; use-package
 (straight-use-package 'use-package)
