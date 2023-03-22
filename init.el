@@ -19,6 +19,8 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+(setq straight-vc-git-default-clone-depth 1)
+
 ;;; Use another file to store customizations instead of init.el
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (when (file-exists-p custom-file)
