@@ -225,6 +225,23 @@
     (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
+;; markdown mode
+;; Styling text is prefixed with C-c C-s key binding
+;; Toggle command is prefixed with C-c C-x key binding
+;; C-c C-l: insert link
+;; C-c C-i: insert image
+;; C-c C-s i: insert italic
+;; C-c C-s c: insert code
+;; C-c C-s C: insert gfm code block
+;; C-c C-s d: strikethrough text
+;; C-c < and C-c >: shift selected region
+;; C-c C-n and C-c C-p: outline navigation
+(use-package markdown-mode
+  :defer t
+  :commands (markdown-mode gfm-mode)
+  :mode (("\\.md\\'" . gfm-mode)
+	 ("\\.markdown\\'" . markdown-mode)))
+
 (use-package tree-sitter
   :config
   (global-tree-sitter-mode)
@@ -496,23 +513,6 @@
 ;; Youdao dictionary
 (use-package youdao-dictionary
   :bind ("C-c y" . youdao-dictionary-search-at-point))
-
-;; markdown mode
-;; Styling text is prefixed with C-c C-s key binding
-;; Toggle command is prefixed with C-c C-x key binding
-;; C-c C-l: insert link
-;; C-c C-i: insert image
-;; C-c C-s i: insert italic
-;; C-c C-s c: insert code
-;; C-c C-s C: insert gfm code block
-;; C-c C-s d: strikethrough text
-;; C-c < and C-c >: shift selected region
-;; C-c C-n and C-c C-p: outline navigation
-(use-package markdown-mode
-  :defer t
-  :commands (markdown-mode gfm-mode)
-  :mode (("\\.md\\'" . gfm-mode)
-	 ("\\.markdown\\'" . markdown-mode)))
 
 (use-package protobuf-mode
   :defer t)
