@@ -302,6 +302,9 @@
 (use-package switch-window
   :bind (("C-x o" . switch-window)))
 
+;; chatgpt, submodule site-lisp/mind-wave from https://github.com/manateelazycat/mind-wave
+(require 'mind-wave)
+
 ;;; Projectile: Project navigation and management library for Emacs
 (use-package projectile
   :config

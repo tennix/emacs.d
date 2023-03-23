@@ -1,0 +1,3 @@
+[submodule "site-lisp/mind-wave"]
+	path = site-lisp/mind-wave
+	url = https://github.com/manateelazycat/mind-wave
