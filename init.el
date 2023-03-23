@@ -162,6 +162,7 @@
 ;; C-c C-t: toggle vterm-copy-mode
 ;; better to use tmux inside vterm
 (use-package vterm
+  :commands (vterm)
   :config
   (setq vterm-max-scrollback 10000)
   (setq vterm-buffer-name-string "vterm %s") ; Define prompt in bashrc/zshrc: PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
