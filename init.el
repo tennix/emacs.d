@@ -472,8 +472,6 @@
   :config
   (global-diff-hl-mode))
 
-;; forge uses ghub to interact with github
-(use-package forge :after magit)
 ;; Copy git repo link for the current file and line number
 (use-package git-link)
 
