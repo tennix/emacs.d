@@ -461,10 +461,13 @@
   :bind (("C-c g" . magit-status)
 	 ("C-c b" . magit-blame-addition)
 	 ("C-c l" . magit-log-buffer-file)))
-(use-package diff-hl)
-(global-diff-hl-mode)
-(add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
-(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+(use-package diff-hl
+  :init
+  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  :config
+  (global-diff-hl-mode))
+
 ;; forge uses ghub to interact with github
 (use-package forge :after magit)
 ;; Copy git repo link for the current file and line number
