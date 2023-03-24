@@ -322,16 +322,6 @@
 ;; Lightweight LSP client
 (use-package eglot)
 
-;; A workaround when hitting "Too many open files" error with LSP
-;; https://www.blogbyben.com/2022/05/gotcha-emacs-on-mac-os-too-many-files.html
-(defun file-notify-rm-all-watches ()
-  "Remove all existing file notification watches from Emacs."
-  (interactive)
-  (maphash
-   (lambda (key _value)
-     (file-notify-rm-watch key))
-   file-notify-descriptors))
-
 ;; Text search with ripgrep
 ;; wgrep is enabled by this
 ;; C-c s: start magit like buffer
