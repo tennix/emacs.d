@@ -529,7 +529,10 @@
 
 ;; avy: quick jump to visible point
 (use-package avy
-  :bind (("C-c j" . avy-goto-word-or-subword-1)))
+  :bind (("C-c j" . avy-goto-word-or-subword-1)
+	 ("M-g g" . avy-goto-line)))
+(use-package ace-window
+  :bind (("M-o" . ace-window)))
 
 ;; dumb-jump: jump to definition without language server, use rg for fuzzy searching
 (use-package dumb-jump
