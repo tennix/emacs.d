@@ -205,6 +205,12 @@
 
 ;;;; Editing enhancement ;;;;
 
+(require 'keyfreq)
+(setq keyfreq-file "~/.emacs.d/.keyfreq"
+      keyfreq-file-lock "~/.emacs.d/.keyfreq.lock")
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
+
 ;; Expand region increases the selected region by semantic units
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))

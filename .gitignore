@@ -54,3 +54,5 @@ straight
 /eln-cache/
 org-roam.db
 mind-wave/
+.keyfreq
+.keyfreq.lock
