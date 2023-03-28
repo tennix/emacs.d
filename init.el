@@ -95,7 +95,7 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 ;; Configure font
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 120)
 
 ;;;; UI & UX configurations ;;;;
 
@@ -362,6 +362,9 @@
 (use-package eglot)
 
 (use-package consult-eglot)
+
+(use-package copilot
+  :straight (:type git :repo "https://github.com/zerolfx/copilot.el" :files ("dist" "*.el")))
 
 ;; eglot relies on flymake, flymake is good enough to use now
 (use-package flymake
