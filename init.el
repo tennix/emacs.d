@@ -364,7 +364,17 @@
 (use-package consult-eglot)
 
 (use-package copilot
-  :straight (:type git :repo "https://github.com/zerolfx/copilot.el" :files ("dist" "*.el")))
+  :straight (:type git :repo "https://github.com/zerolfx/copilot.el" :files ("dist" "*.el"))
+  :hook ((prog-mode . copilot-mode)
+	 (yaml-mode . copilot-mode))
+  :bind (("C-c M-f" . copilot-complete)
+         :map copilot-completion-map
+         ("C-g" . 'copilot-clear-overlay)
+         ("M-p" . 'copilot-previous-completion)
+         ("M-n" . 'copilot-next-completion)
+         ("<tab>" . 'copilot-accept-completion)
+         ("M-f" . 'copilot-accept-completion-by-word)
+         ("M-<return>" . 'copilot-accept-completion-by-line)))
 
 ;; eglot relies on flymake, flymake is good enough to use now
 (use-package flymake
