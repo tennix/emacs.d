@@ -450,6 +450,10 @@
   :config
   (rg-enable-default-bindings))
 
+;; installed by git submodule
+(require 'blink-search)
+(setq blink-search-enable-icon nil)
+
 (use-package ctrlf
   :init
   (ctrlf-mode +1))

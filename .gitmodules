@@ -1,3 +1,6 @@
 [submodule "site-lisp/keyfreq"]
 	path = site-lisp/keyfreq
 	url = https://github.com/dacap/keyfreq
+[submodule "site-lisp/blink-search"]
+	path = site-lisp/blink-search
+	url = https://github.com/manateelazycat/blink-search
