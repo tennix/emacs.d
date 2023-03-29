@@ -1,6 +1,3 @@
-[submodule "site-lisp/mind-wave"]
-	path = site-lisp/mind-wave
-	url = https://github.com/manateelazycat/mind-wave
 [submodule "site-lisp/keyfreq"]
 	path = site-lisp/keyfreq
 	url = https://github.com/dacap/keyfreq
