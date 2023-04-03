@@ -175,11 +175,11 @@
 
 ;;;; Markup Language configuration ;;;;
 
-;; org insert code: C-c C-,
-(use-package org
-  :init
-  (setq org-log-done 'time
-	org-agenda-files (list "~/my-org-files")))
+;; ;; org insert code: C-c C-,
+;; (use-package org
+;;   :init
+;;   (setq org-log-done 'time
+;; 	org-agenda-files (list "~/my-org-files")))
 
 (use-package org-download
   :after org
