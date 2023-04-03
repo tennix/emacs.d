@@ -7,6 +7,9 @@
 
 ;;; Code:
 (defvar bootstrap-version)
+(setq straight-use-package-by-default t
+      use-package-compute-statistics t;; use-package-report to display use-package statistics
+      straight-vc-git-default-clone-depth '(1 single-branch))
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 6))
@@ -55,9 +58,6 @@
 
 ;; use-package
 (straight-use-package 'use-package)
-(setq straight-use-package-by-default t
-      use-package-compute-statistics t;; use-package-report to display use-package statistics
-      straight-vc-git-default-clone-depth 1)
 
 (use-package emacs
   :init
