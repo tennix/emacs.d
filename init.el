@@ -586,6 +586,7 @@
 (use-package protobuf-mode :defer t)
 
 ;; Config format
+(use-package nix-mode)
 (use-package yaml-mode)
 (use-package toml-mode)
 (use-package json-mode
