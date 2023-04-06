@@ -371,8 +371,8 @@
 
 (use-package copilot
   :straight (:type git :repo "https://github.com/zerolfx/copilot.el" :files ("dist" "*.el"))
-  :hook ((prog-mode . copilot-mode)
-	 (yaml-mode . copilot-mode))
+  ;; :hook ((prog-mode . copilot-mode)
+  ;; 	 (yaml-mode . copilot-mode))
   :bind (("C-c M-f" . copilot-complete)
          :map copilot-completion-map
          ("C-g" . 'copilot-clear-overlay)
