@@ -390,7 +390,12 @@
 
 (use-package go-mode
   :hook ((go-mode . eglot-ensure)
-	 (go-mode . flymake-mode)))
+	     (go-mode . flymake-mode)
+         (go-mode . (lambda ()
+                      ;;set default tab width to 4 spaces
+                      (setq-local tab-width 4)
+                      ;;use space instead of TAB for indentation
+                      (setq-local indent-tabs-mode nil)))))
 
 (use-package rust-mode
   :hook ((rust-mode . eglot-ensure)
