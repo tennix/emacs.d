@@ -326,6 +326,9 @@
 
 ;;;; Term & Shell configurations ;;;;
 
+(use-package direnv
+  :config (direnv-mode))
+
 ;;; Read environment variable from shell config
 (use-package exec-path-from-shell
   :when (memq window-system '(mac ns))
