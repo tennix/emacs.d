@@ -584,6 +584,15 @@
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   :config
   (global-diff-hl-mode))
+;; blamer provides git blame info like git-lens in vscode
+(use-package blamer
+  ;; :bind (("s-i" . blamer-show-commit-info)
+  ;; 	 ("C-c i" . ("s-i" . blamer-show-posframe-commit-info)))
+  :custom
+  (blamer-idle-time 0.3)
+  (blamer-min-offset 70)
+  :config
+  (global-blamer-mode))
 
 ;; Copy git repo link for the current file and line number
 (use-package git-link)
