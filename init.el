@@ -251,10 +251,6 @@
 	 (protobuf-mode . yas-minor-mode))
   :config (yas-reload-all))
 
-;; docker-tramp allows to edit files in docker container using tramp
-;; C-x C-f /docker:user@container_name:/path/to/file
-(use-package docker-tramp :defer t)
-
 ;; Copy yaml files from https://github.com/rime/rime-pinyin-simp and https://github.com/rime/rime-wubi to ~/.emacs.d/rime
 ;; Create ~/.emacs.d/rime/default.custom.yaml with
 ;; patch:
