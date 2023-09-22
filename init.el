@@ -312,9 +312,6 @@
 		   :files ("*.el" "*.py"))
   :init (setq mind-wave-api-base "https://assistant.funcer.xyz/v1"))
 
-(use-package chatgpt-shell
-  :straight (:type git :repo "https://github.com/xenodium/chatgpt-shell"))
-
 ;; auto format using external programming language formatter
 (use-package apheleia
   :config
