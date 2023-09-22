@@ -334,6 +334,8 @@
 	    (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
+(use-package nushell-mode)
+
 (use-package sticky-shell)
 
 (use-package eat
