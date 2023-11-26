@@ -585,9 +585,7 @@
   ;; 	 ("C-c i" . ("s-i" . blamer-show-posframe-commit-info)))
   :custom
   (blamer-idle-time 0.3)
-  (blamer-min-offset 70)
-  :config
-  (global-blamer-mode))
+  (blamer-min-offset 70))
 
 ;; Copy git repo link for the current file and line number
 (use-package git-link)
