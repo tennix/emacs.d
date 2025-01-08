@@ -368,7 +368,7 @@
 (use-package consult-eglot)
 
 (use-package copilot
-  :straight (:type git :repo "https://github.com/zerolfx/copilot.el" :files ("dist" "*.el"))
+  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
   ;; :hook ((prog-mode . copilot-mode)
   ;; 	 (yaml-mode . copilot-mode))
   :bind (("C-c M-f" . copilot-complete)
