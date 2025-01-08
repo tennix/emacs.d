@@ -184,8 +184,8 @@
 (use-package org-download
   :after org
   :bind (:map org-mode-map
-        (("s-Y" . org-download-screenshot)
-         ("s-y" . org-download-yank))))
+              (("s-Y" . org-download-screenshot)
+               ("s-y" . org-download-yank))))
 
 ;; markdown mode
 ;; Styling text is prefixed with C-c C-s key binding
@@ -327,10 +327,10 @@
   :when (memq window-system '(mac ns))
   :init (setq exec-path-from-shell-arguments nil)
   :config (dolist (var '("SSH_AUTH_SOCK"
-		 "SSH_AGENT_PID"
-		 "GPG_AGENT_INFO"
-		 "LANG"
-		 "LC_CTYPE"))
+			 "SSH_AGENT_PID"
+			 "GPG_AGENT_INFO"
+			 "LANG"
+			 "LC_CTYPE"))
 	    (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
@@ -388,7 +388,7 @@
 
 (use-package go-mode
   :hook ((go-mode . eglot-ensure)
-	     (go-mode . flymake-mode)
+	 (go-mode . flymake-mode)
          (go-mode . (lambda ()
                       ;;set default tab width to 4 spaces
                       (setq-local tab-width 4)
